@@ -6,7 +6,6 @@ public class BookArrayListTest {
 	
 	public static void main(String[] args) {
 		BookArrayList bookArrayList = new BookArrayList();
-		Scanner scanner = new Scanner(System.in);
 		
 		Book book1 = new Book(0001, "파우스트");
 		Book book2 = new Book(0002, "황무지");
@@ -20,19 +19,23 @@ public class BookArrayListTest {
 		bookArrayList.addBook(book4);
 		bookArrayList.addBook(book5);
 		
-		bookArrayList.showAllBook();
-		
-		System.out.println("도서를 추가할 위치를 입력:");
-		int loc = scanner.nextInt();
-		System.out.println("책 ID 입력:");
-		int ID = scanner.nextInt();
-		System.out.println("책 제목 입력:");
-		String Title = scanner.next();
-		Book newBook = new Book(ID, Title);
-		bookArrayList.insertBook(loc, newBook);
-		
-		bookArrayList.showAllBook();
-		
-		scanner.close();
+		bookArrayList.showAllBook(); //전체 책 출력
+
+		//키보드로 위치와 잭 ID, 책 제목을 입력 받아서 추가
+        Scanner scanner = new Scanner(System.in);
+		System.out.println("도서를 추가할 위치를 입력 : ");
+		int insertIndex = scanner.nextInt();
+	    System.out.print("책 ID 입력 : ");
+	    int bookId = scanner.nextInt();
+	    scanner.nextLine(); // Consume the newline character
+	    System.out.print("책 제목 입력 : ");
+	    String title = scanner.nextLine();
+
+	    Book newBook = new Book(bookId, title);
+	    bookArrayList.insertBook(insertIndex, newBook);
+
+	    bookArrayList.showAllBook(); // 전체 책 출력
+
+	    scanner.close();
 	}
 }

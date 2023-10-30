@@ -27,9 +27,7 @@ public class BookArrayList {
 	}
 	
 	public void insertBook(int index, Book book) {
-		if (index >= 0 && index <= arrayList.size()) {
-			arrayList.add(index, book);
-		}
+		arrayList.add(index, book);
 	}
 
 	
